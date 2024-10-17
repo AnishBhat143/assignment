@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <style>
+    .service-card {
+      transition: transform 1s ease-in-out;
+      transform-origin: center;
+    }
+
+    .icon-space {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #6b46c1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: -30px;
+    }
+
+    .icon-space img {
+      width: 40px;
+      height: 40px;
+    }
+
+    /* New Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f7fafc; /* Tailwind Gray 100 */
+    }
+
+    #assignment {
+      max-width: 1800px; /* Adjust this value as needed */
+      margin: 0 auto; /* Center the container */
+      padding: 60px; /* Add padding for better spacing */
+    }
+  </style>
+</head>
+<body>
+  <div id="assignment" class="p-10 bg-purple-900 text-white rounded-lg shadow-lg border-4 border-gray-200">
+    <h2 class="text-4xl font-bold mb-8 text-center">Our Services</h2>
+
+    <div class="flex justify-center space-x-8">
+      <div id="card1" class="service-card bg-white p-6 rounded-lg shadow-lg w-56 h-72 flex flex-col items-center justify-between text-center transition-transform relative">
+        <div class="icon-space">
+          <img src="images/image.png" alt="Emergency Plumbing Icon">
+        </div>
+        <div class="mt-12">
+          <h3 class="text-lg font-semibold text-gray-800">Emergency Plumbing Services</h3>
+          <p class="text-sm text-gray-600 mt-2">Available 24/7, including nights and holidays.</p>
+        </div>
+        <a href="#" class="mt-4 text-blue-500 font-semibold">EXPLORE THIS SERVICE &rarr;</a>
+      </div>
+
+      <div id="card2" class="service-card bg-white p-6 rounded-lg shadow-lg w-56 h-72 flex flex-col items-center justify-between text-center transition-transform relative">
+        <div class="icon-space bg-blue-600">
+          <img src="images/image copy.png" alt="Plumbing and Drains Icon">
+        </div>
+        <div class="mt-12">
+          <h3 class="text-lg font-semibold text-gray-800">Plumbing and Drains</h3>
+          <p class="text-sm text-gray-600 mt-2">Expert plumbing and drain services.</p>
+        </div>
+        <a href="#" class="mt-4 text-blue-500 font-semibold">EXPLORE THIS SERVICE &rarr;</a>
+      </div>
+
+      <div id="card3" class="service-card bg-white p-6 rounded-lg shadow-lg w-56 h-72 flex flex-col items-center justify-between text-center transition-transform relative">
+        <div class="icon-space">
+          <img src="images/water-drop.png" alt="Water Damage Icon">
+        </div>
+        <div class="mt-12">
+          <h3 class="text-lg font-semibold text-gray-800">Water Damage</h3>
+          <p class="text-sm text-gray-600 mt-2">State-of-the-art water extraction.</p>
+        </div>
+        <a href="#" class="mt-4 text-blue-500 font-semibold">EXPLORE THIS SERVICE &rarr;</a>
+      </div>
+
+      <div id="card4" class="service-card bg-white p-6 rounded-lg shadow-lg w-56 h-72 flex flex-col items-center justify-between text-center transition-transform relative">
+        <div class="icon-space bg-yellow-500">
+          <img src="images/water-heater.png" alt="Water Heaters Icon">
+        </div>
+        <div class="mt-12">
+          <h3 class="text-lg font-semibold text-gray-800">Water Heaters</h3>
+          <p class="text-sm text-gray-600 mt-2">Repair and replacement of water heaters.</p>
+        </div>
+        <a href="#" class="mt-4 text-blue-500 font-semibold">EXPLORE THIS SERVICE &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rotation Animation with Anime.js -->
+  <script>
+    // Function to apply single 360° rotation on hover
+    function rotateOnHover(cardId) {
+      let card = document.getElementById(cardId);
+      let rotation = 0; // Track the rotation state
+      
+      card.addEventListener('mouseenter', () => {
+        rotation += 360; // Increment the rotation
+        anime({
+          targets: card,
+          rotate: rotation, // Use the current rotation value
+          easing: 'easeInOutQuad',
+          duration: 1000,
+          // Reset the rotation back to 0 after animation completes
+          complete: () => {
+            card.style.transform = `rotate(${rotation}deg)`; // Maintain the last rotation position
+          }
+        });
+      });
+    }
+    rotateOnHover('card1');
+    rotateOnHover('card2');
+    rotateOnHover('card3');
+    rotateOnHover('card4');
+  </script>
+</body>
+</html>
